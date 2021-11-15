@@ -1,64 +1,61 @@
-<!DOCTYPE html>
-<head>
-    <body>
-        <template>
-            <!-- Still need to make buttons same size.
-            - Lightning buttons unable to be sized?
-            - Button size can't be changed unless button is in it's own block?
-            - Variants don't seem to work?
-            -->
-            <div class="buttons">
-                <div class="button">
-                    <lightning-button variant="brand" icon-name='action:map' label="Maps" title=""></lightning-button>
-                </div>
-                <div class="button">
-                    <lightning-button variant="brand" icon-name='utility:cart' label="Cart" title=""></lightning-button>
-                </div>
-                <div class="button">
-                    <lightning-button variant="brand" icon-name='utility:question' label="FAQ" title=""></lightning-button>
-                </div>
-            </div>
-            <h1>
-                Doug's One Stop Animal Shop
-            </h1>
-            <p>{activeSectionsMessage}</p>
+
+<template>
+    <!-- Still need to make buttons same size.
+    - Lightning buttons unable to be sized?
+    - Button size can't be changed unless button is in it's own block?
+    - Variants don't seem to work?
+    -->
+    <div class="buttons">
+        <div class="button">
+            <lightning-button variant="brand" icon-name='action:map' label="Maps" title=""></lightning-button>
+        </div>
+        <div class="button">
+            <lightning-button variant="brand" icon-name='utility:cart' label="Cart" title=""></lightning-button>
+        </div>
+        <div class="button">
+            <lightning-button variant="brand" icon-name='utility:question' label="FAQ" title=""></lightning-button>
+        </div>
+    </div>
+    <h1>
+        (Animal Shop Name Goes Here)
+    </h1>
+    <p>{activeSectionsMessage}</p>
+    <lightning-accordion allow-multiple-sections-open
+                            onsectiontoggle={handleSectionToggle}
+                            active-section-name={activeSections}
+                            title="">
+        <lightning-accordion-section name="Mammals" label="Mammals">
+            <p class="mammal">These are all the mammals currently for sale.</p>
             <lightning-accordion allow-multiple-sections-open
-                                 onsectiontoggle={handleSectionToggle}
-                                 active-section-name={activeSections}
-                                 title="">
-                <lightning-accordion-section name="Mammals" label="Mammals">
-                    <p class="mammal">These are all the mammals currently for sale.</p>
-                    <lightning-accordion allow-multiple-sections-open
-                                 onsectiontoggle={handleSectionToggle}
-                                 active-section-name={activeSections}
-                                 title="">
-                        <lightning-accordion-section name="Dogs" label="Dogs">
-                            <p class="mammal">Dogs will go here.</p>
-                        </lightning-accordion-section>
-                        <lightning-accordion-section name="Cats" label="Cats">
-                            <p class="mammal">Cats will go here.</p>
-                        </lightning-accordion-section>
-                    </lightning-accordion>
+                            onsectiontoggle={handleSectionToggle}
+                            active-section-name={activeSections}
+                            title="">
+                <lightning-accordion-section name="Dogs" label="Dogs">
+                    <p class="mammal">Dogs will go here.</p>
                 </lightning-accordion-section>
-                <lightning-accordion-section name="Reptiles" label="Reptiles">
-                    <p class="reptile">These are all the reptiles currently for sale.</p>
-                    <lightning-accordion allow-multiple-sections-open
-                                 onsectiontoggle={handleSectionToggle}
-                                 active-section-name={activeSections}
-                                 title="">
-                        <lightning-accordion-section name="Snakes" label="Snakes">
-                            <p class="reptile">Snakes will go here.</p>
-                        </lightning-accordion-section>
-                        <lightning-accordion-section name="Lizards" label="Lizards">
-                            <p class="reptile">Lizards will go here.</p>
-                        </lightning-accordion-section>
-                    </lightning-accordion>
-                </lightning-accordion-section>
-        
-                <lightning-accordion-section name="Birds" label="Birds">
-                    <p class="bird">Birds for sale will go here.</p>
+                <lightning-accordion-section name="Cats" label="Cats">
+                    <p class="mammal">Cats will go here.</p>
                 </lightning-accordion-section>
             </lightning-accordion>
-        </template>
-    </body>
-</head>
+        </lightning-accordion-section>
+        <lightning-accordion-section name="Reptiles" label="Reptiles">
+            <p class="reptile">These are all the reptiles currently for sale.</p>
+            <lightning-accordion allow-multiple-sections-open
+                            onsectiontoggle={handleSectionToggle}
+                            active-section-name={activeSections}
+                            title="">
+                <lightning-accordion-section name="Snakes" label="Snakes">
+                    <p class="reptile">Snakes will go here.</p>
+                </lightning-accordion-section>
+                <lightning-accordion-section name="Lizards" label="Lizards">
+                    <p class="reptile">Lizards will go here.</p>
+                </lightning-accordion-section>
+            </lightning-accordion>
+        </lightning-accordion-section>
+
+        <lightning-accordion-section name="Birds" label="Birds">
+            <p class="bird">Birds for sale will go here.</p>
+        </lightning-accordion-section>
+    </lightning-accordion>
+</template>
+
